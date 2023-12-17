@@ -136,3 +136,6 @@ For Right Camera View:
 ros2 run image_view image_view --ros-args --remap /image:=/front_stereo_camera/right_rgb/image_resize 
 ```
 This allows us to see the live video feed that is being provided to the disparity mask.
+
+### V. Code Demostration
+

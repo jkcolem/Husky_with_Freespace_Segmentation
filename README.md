@@ -65,7 +65,13 @@ ros2 topic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 2.0, y: 0.0, z: 0.0},
 
 ### B) Teleop
 
-Step 1. Follow ROS2 Turtlebout Packages 
+Step 1. Follow Turtlebot3 Gazebo Simulation Packages: https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/ . This allow us to have the teleoporation for the Husky.
+
+Note: You will need ROS2
+
+Step 2. There is a file where you can change the max velocity and angular velocity of the teleoperation [ Will update how to accesses this in a future update to readme]
+
+Step 3. Open a new terminal and run the following commands in your Turtlebot3 workspace
 
 ```bash
 source install/setup.bash 
@@ -78,4 +84,53 @@ ros2 run turtlebot3_teleop teleop_keyboard
 ```
 ## 4. Setup of Freespace Segmentation
 
-Step 1. 
+Step 1. Follow steps 1 -7 through "isaac_ros_bi3d_freespace quickstart guide": https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_freespace_segmentation/isaac_ros_bi3d_freespace/index.html#quickstart . These steps will create all of the packages and onxx models needed in a docker container to run NVIDIA's Isaac ROS freespace segmentation.
+
+Step 2. Run the following in a new terminal attached to the docker container
+
+```bash
+cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
+./scripts/run_dev.sh
+```
+Note: After everytime we create a new terminal attached to the docker container, we must run the following:
+
+```bash
+cd /workspaces/isaac_ros-dev && \
+  colcon build --symlink-install && \
+  source install/setup.bash
+```
+This builds and source the workspace
+
+Step 3. In the new terminal, run the following launch files to start the Isaac ROS BI3D Freespace segmetation:
+
+```bash
+ros2 launch isaac_ros_bi3d_freespace isaac_ros_bi3d_freespace_isaac_sim.launch.py \
+featnet_engine_file_path:=/tmp/models/bi3d/bi3dnet_featnet.plan \
+segnet_engine_file_path:=/tmp/models/bi3d/bi3dnet_segnet.plan \
+max_disparity_values:=64\
+```
+
+Note: The code defualts to the left side of the camera to change this to the right added:
+
+``` bash
+camera:=
+```
+
+Step 4. Open a thrid terminal attached to the docker container and run the following:
+
+``` bash
+ros2 run isaac_ros_bi3d isaac_ros_bi3d_visualizer.py --disparity_topic bi3d_mask
+```
+This visualize the disparity mask on the live camera feed.
+
+Step 5 (optional). Opena a fourth terminal attached to the docker container and run the following:
+
+For Left Camerea View:
+```bash
+ros2 run image_view image_view --ros-args --remap /image:=/front_stereo_camera/left_rgb/image_resize
+```
+For Right Camera View:
+```bash
+ros2 run image_view image_view --ros-args --remap /image:=/front_stereo_camera/right_rgb/image_resize 
+```
+This allows us to see the live video feed that is being provided to the disparity mask.

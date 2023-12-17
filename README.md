@@ -139,3 +139,4 @@ This allows us to see the live video feed that is being provided to the disparit
 
 ### V. Code Demostration
 
+![video](https://github.com/jkcolem/Husky_with_Freespace_Segmentation/blob/main/2023-12-06%2000-34-19.gif)

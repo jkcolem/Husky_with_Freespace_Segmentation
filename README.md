@@ -1,7 +1,7 @@
 # Husky_with_Freespace_Segmentation
 Reseach Project using Nvidia Isaac ROS Bi3D Freespace Segmentation
 
-## 1. Installations
+## I. Installations
 
 Step 1. Install or update your NVIDIA Drivers: https://ubuntu.com/server/docs/nvidia-drivers-installation .
 
@@ -18,7 +18,7 @@ If you are using a Linux system please follow the extra instructions that NVIDIA
 
 Step 6. The comptue setup needed to use Isaac ROS: https://nvidia-isaac-ros.github.io/getting_started/hardware_setup/compute/index.html
 
-## 2. Setup of Isaac Sim with Husky
+## II. Setup of Isaac Sim with Husky
 
 Step 1. Clone or Download this GitHub repository 
 
@@ -55,7 +55,7 @@ Step 6. Once this error code is fixed and you change lighting to ```Stage Lights
 
 Note: If you click play in this state the husky will drop down to infinity. To test to see if the ROS2 action graphs are working, you can create a physic scene flat grid for the husky to interact with. Then create a shape that has collider preset so the lidar will be able to dectect it. Run ```RVIZ2``` in a sepreate terminal (requires you have ROS2. But in Part IV we will create a ROS2 docker container where you will able to do this command.).
 
-## 3. Moving the Husky in Isaac Sim
+## II. Moving the Husky in Isaac Sim
 
 ### A) Publishing Twist Message
 
@@ -82,11 +82,13 @@ export TURTLEBOT3_MODEL=burger
 
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
-## 4. Setup of Freespace Segmentation
+## IV. Setup of Freespace Segmentation
 
-Step 1. Follow steps 1 -7 through "isaac_ros_bi3d_freespace quickstart guide": https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_freespace_segmentation/isaac_ros_bi3d_freespace/index.html#quickstart . These steps will create all of the packages and onxx models needed in a docker container to run NVIDIA's Isaac ROS freespace segmentation.
+Step 1. Drag and drop ```world.usd``` or your own custom enviroment into Isaac Sim with the husky (from Part II)
 
-Step 2. Run the following in a new terminal attached to the docker container
+Step 2. Follow steps 1 -7 through "isaac_ros_bi3d_freespace quickstart guide": https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_freespace_segmentation/isaac_ros_bi3d_freespace/index.html#quickstart . These steps will create all of the packages and onxx models needed in a docker container to run NVIDIA's Isaac ROS freespace segmentation.
+
+Step 3. Run the following in a new terminal attached to the docker container
 
 ```bash
 cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
@@ -101,7 +103,7 @@ cd /workspaces/isaac_ros-dev && \
 ```
 This builds and source the workspace
 
-Step 3. In the new terminal, run the following launch files to start the Isaac ROS BI3D Freespace segmetation:
+Step 4. In the new terminal, run the following launch files to start the Isaac ROS BI3D Freespace segmetation:
 
 ```bash
 ros2 launch isaac_ros_bi3d_freespace isaac_ros_bi3d_freespace_isaac_sim.launch.py \
@@ -113,17 +115,17 @@ max_disparity_values:=64\
 Note: The code defualts to the left side of the camera to change this to the right added:
 
 ``` bash
-camera:=
+camera_frame:= front_stereo_camera:right_rgb\
 ```
 
-Step 4. Open a thrid terminal attached to the docker container and run the following:
+Step 5. Open a thrid terminal attached to the docker container and run the following:
 
 ``` bash
 ros2 run isaac_ros_bi3d isaac_ros_bi3d_visualizer.py --disparity_topic bi3d_mask
 ```
 This visualize the disparity mask on the live camera feed.
 
-Step 5 (optional). Opena a fourth terminal attached to the docker container and run the following:
+Step 6 (optional). Opena a fourth terminal attached to the docker container and run the following:
 
 For Left Camerea View:
 ```bash

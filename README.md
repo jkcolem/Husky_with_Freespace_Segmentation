@@ -1,4 +1,7 @@
 # Husky_with_Freespace_Segmentation
+![Nvidia](https://camo.githubusercontent.com/782b1fbf320f714fc832dd80f02b0db9b8765e3f7577aaa478cf7d6ba235bb33/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4e564944494126636f6c6f723d323232323232266c6f676f3d4e5649444941266c6f676f436f6c6f723d373642393030266c6162656c3d)![Docker](https://camo.githubusercontent.com/4ec342876a40b53ffc6230a41196528690f9f42b1098fd354df46c649720b4c6/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d446f636b657226636f6c6f723d323439364544266c6f676f3d446f636b6572266c6f676f436f6c6f723d464646464646266c6162656c3d)![OpenCV](https://camo.githubusercontent.com/83d8a90be61c85c17da1e70a56d4e9fc5943ec1b91ddc47726b9485689a8c3b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4f70656e435626636f6c6f723d354333454538266c6f676f3d4f70656e4356266c6f676f436f6c6f723d464646464646266c6162656c3d)
+
+
 Reseach Project using Nvidia Isaac ROS Bi3D Freespace Segmentation
 
 ## I. Installations
@@ -53,7 +56,7 @@ Step 6. Once this error code is fixed and you change lighting to ```Stage Lights
 
 ![husky_in_isacc_sim](https://github.com/jkcolem/Husky_with_Freespace_Segmentation/blob/main/Screenshot%20from%202023-12-15%2016-01-10.png)
 
-Note: If you click play in this state the husky will drop down to infinity. To test to see if the ROS2 action graphs are working, you can create a physic scene flat grid for the husky to interact with. Then create a shape that has collider preset so the lidar will be able to dectect it. Run ```RVIZ2``` in a sepreate terminal (requires you have ROS2. But in Part IV we will create a ROS2 docker container where you will able to do this command.).
+Note: If you click play in this state the husky will drop down to infinity. To test to see if the ROS2 action graphs are working, you can create a physic scene flat grid for the husky to interact with. Then create a shape that has collider preset so the lidar will be able to dectect it. Run ```RVIZ2``` in a sepreate terminal (requires you have ROS2 Humble. But in Part IV we will create a ROS2 docker container where you will able to do this command.).
 
 ## II. Moving the Husky in Isaac Sim
 
@@ -67,7 +70,7 @@ ros2 topic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 2.0, y: 0.0, z: 0.0},
 
 Step 1. Follow Turtlebot3 Gazebo Simulation Packages: https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/ . This allow us to have the teleoporation for the Husky.
 
-Note: You will need ROS2
+Note: You will need ROS2 Humble
 
 Step 2. There is a file where you can change the max velocity and angular velocity of the teleoperation [ Will update how to accesses this in a future update to readme]
 
@@ -142,3 +145,5 @@ This allows us to see the live video feed that is being provided to the disparit
 <img src=https://github.com/jkcolem/Husky_with_Freespace_Segmentation/blob/main/2023-12-06%2000-34-19.gif width="500" height="500"/>
 
 Note: This video includes optional Step 6 from Part IV
+
+Note: You can change the mask color from GrayScale to a different colormap (more details in future update)

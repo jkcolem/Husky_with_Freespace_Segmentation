@@ -57,6 +57,25 @@ Note: If you click play in this state the husky will drop down to infinity. To t
 
 ## 3. Moving the Husky in Isaac Sim
 
+### A) Publishing Twist Message
+
+```bash
+ros2 topic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+```
+
+### B) Teleop
+
+Step 1. Follow ROS2 Turtlebout Packages 
+
+```bash
+source install/setup.bash 
+
+export TURTLEBOT3_MODEL=waffle_pi 
+
+export TURTLEBOT3_MODEL=burger 
+
+ros2 run turtlebot3_teleop teleop_keyboard
+```
 ## 4. Setup of Freespace Segmentation
 
 Step 1. 

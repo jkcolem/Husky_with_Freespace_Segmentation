@@ -128,7 +128,7 @@ ros2 run isaac_ros_bi3d isaac_ros_bi3d_visualizer.py --disparity_topic bi3d_mask
 ```
 This visualize the disparity mask on the live camera feed.
 
-Step 6 (optional). Opena a fourth terminal attached to the docker container and run the following:
+Step 6 (optional). Open a fourth terminal attached to the docker container and run the following:
 
 For Left Camerea View:
 ```bash

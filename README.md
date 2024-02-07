@@ -112,7 +112,7 @@ Step 4. In the new terminal, run the following launch files to start the Isaac R
 ros2 launch isaac_ros_bi3d_freespace isaac_ros_bi3d_freespace_isaac_sim.launch.py \
 featnet_engine_file_path:=/tmp/models/bi3d/bi3dnet_featnet.plan \
 segnet_engine_file_path:=/tmp/models/bi3d/bi3dnet_segnet.plan \
-max_disparity_values:=64\
+max_disparity_values:=64
 ```
 
 Note: The code defualts to the left side of the camera to change this to the right added:

@@ -118,7 +118,7 @@ max_disparity_values:=64
 Note: The code defualts to the left side of the camera to change this to the right added:
 
 ``` bash
-camera_frame:= front_stereo_camera:right_rgb\
+camera_frame:= front_stereo_camera:right_rgb \
 ```
 
 Step 5. Open a thrid terminal attached to the docker container and run the following:

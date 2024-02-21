@@ -63,7 +63,7 @@ Note: If you click play in this state the husky will drop down to infinity. To t
 ### A) Publishing Twist Message
 
 ```bash
-ros2 topic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+ros2 topic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
 ```
 
 ### B) Teleop

@@ -147,3 +147,7 @@ This allows us to see the live video feed that is being provided to the disparit
 Note: This video includes optional Step 6 from Part IV
 
 Note: You can change the mask color from GrayScale to a different colormap (more details in future update)
+
+### VI. Link to YouTube Video of Outdoor Autonomy Oriented Digital Twin for Wheeled Mobile Robots
+
+Link: https://youtu.be/FAJQwg3lfDY?si=H31s5fX3eKVDIj6b
